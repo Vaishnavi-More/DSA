@@ -15,3 +15,6 @@ int main(){
     }
     return 0;
 }
+
+//Time Complexity: O(N) where N is no of nodes
+//Space Complexity: O(2*E) where E is no of edges   
