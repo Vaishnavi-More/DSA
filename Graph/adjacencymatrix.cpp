@@ -1,4 +1,4 @@
-//Creation of undirected graph 
+//Creation of undirected graph using adjacency matrix
 #include<iostream>
 using namespace std;
 int main(){
@@ -21,3 +21,6 @@ int main(){
     return 0;
 
 }
+
+//Time Complexity: O(n) where n is no of nodes
+//Space Complexity: O(n^2)     ...Since n+1 * n+1 matrix is created
