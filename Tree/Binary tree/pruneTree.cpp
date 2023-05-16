@@ -24,4 +24,4 @@ TreeNode* pruneTree(TreeNode* root) {
     }
 
 //TC: O(N)
-//SC: O(N)  ..AUxillary space aquired by stack
+//SC: O(H)  ..Auxillary space aquired by stack
