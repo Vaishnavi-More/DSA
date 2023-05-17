@@ -1,4 +1,7 @@
- TreeNode* helper(vector<int>& nums, int low, int high, int mid){
+//Leetcode: 108. Convert Sorted Array to Binary Search Tree
+//Link: https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
+
+TreeNode* helper(vector<int>& nums, int low, int high, int mid){
         //base case
         if(mid<low || mid>high) return NULL;
 
@@ -32,7 +35,7 @@
         TreeNode* root=helper(nums, low, high, mid);
 
         //return root
-        return root;
-
-        
+        return root;  
     }
+
+//Time Complexity: O(N)
