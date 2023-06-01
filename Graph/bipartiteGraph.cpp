@@ -1,6 +1,7 @@
 //Leetcode: 785. Is Graph Bipartite?
 //Link: https://leetcode.com/problems/is-graph-bipartite
 
+//BFS Traversal
 bool helper(int start, vector<vector<int>>& graph, vector<int> &vis){
         //BFS traversal
 
@@ -85,6 +86,51 @@ public:
         return true;
     }
 
+
+//DFS Traversal
+private: 
+    //DFS traversal
+    bool helper(int start, int color, vector<int> adj[], int vis[]) {
+        //color the node
+        vis[start]=color;
+        
+        //traverse it's neighbour nodes
+        for(auto it: adj[start]){
+            
+            //if neighbour node is not visited
+            if(vis[it]==-1){
+              //recursive call
+              if((helper(it, !color, adj, vis))==0) return false;
+            }
+            
+            //if neighbour node is already visited then check if it's color is similar to current node
+            else if(vis[it]==color) return false;
+        }
+        
+        return true;
+    }
+
+public:
+    bool isBipartite(int V, vector<int> adj[]) {
+        //visted array
+        int vis[V];
+        
+        //-1: indicates no color, 0: 1st color, 1: 2nd color
+        for (int i = 0; i < V; i++){
+            vis[i] = -1;
+        }
+            
+        //traverse graph    
+        for (int i = 0; i < V; i++) {
+            
+            //if node not visted
+            if (vis[i] == -1) {
+                if (!helper(i,0, adj, vis))
+                    return false;
+            }
+        }
+        return true;
+    }
 
 //Time Complexity: O(N*M)
 //Space Complexity: O(N)
