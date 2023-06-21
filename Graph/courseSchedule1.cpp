@@ -1,7 +1,8 @@
 //Leetcode: 207. Course Schedule
 //Link: https://leetcode.com/problems/course-schedule
 
-/* Problem is to arrange courses in u->v format so simply we will check if cycle is present in directed graph or another approach is topological sort
+/* Problem is to check if we can arrange courses in u->v format 
+so simply we will check if cycle is present in directed graph or another approach is topological sort
 Simply, trace give 2D matrix into u->v format and apply topo sort or using DFS traversal 
   */
 
