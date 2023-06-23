@@ -92,5 +92,46 @@ bool dfs(int s, vector<vector<int>>& graph, vector<int>& vis, vector<int>& pathv
         
     }
 
+
+//Using Topological sort (Kahn's algo)
+/*
+The nodes which can be topological sorted are safe states since they are not involved in cycle and doesn't lead to cycle
+Just we will reverse the edges to apply topo sort.
+*/
+
+ vector<int> eventualSafeNodes(int V, vector<int> adj[]) {
+        // reverse the edges i.e u->v to v->u
+        vector<int> adjR[V];
+         int indg[V]={0};
+        for(int i=0; i<V; i++){
+            for(auto it: adj[i]){
+                adjR[it].push_back(i);
+                indg[i]++;
+            }
+        }
+        
+        //Kahn's algorithm 
+        queue<int> q;
+        for(int i=0; i<V; i++){
+            if(indg[i]==0)q.push(i);
+        }
+        vector<int> ans;
+        while(!q.empty()){
+            int temp=q.front();
+            q.pop();
+            ans.push_back(temp);
+            for(auto it: adjR[temp]){
+                indg[it]--;
+                if(indg[it]==0){
+                    q.push(it);
+                }
+            }
+        }
+        
+        //the nodes present in ans vector are safe states 
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+
 //TC: O(N) +O(N) +O(N+E) ~ O(N+E)
 //SC: O(N)
