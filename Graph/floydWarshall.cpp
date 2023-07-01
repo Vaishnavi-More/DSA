@@ -35,7 +35,7 @@ void shortest_distance(vector<vector<int>>&matrix){
 
       //to detect negative cycle in graph
       for(int i=0; i<n; i++){
-       if(matrix[i][j]<0) {
+       if(matrix[i][i]<0) {
            cout<<" Negative cycle is present";
         }
       }
